@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container my-5">
+
+<div>
+    <% if(locals.frontTitleArray && locals.frontUsernameArray && locals.frontContentArray) {%>
+        <% for (let index = 0; index < frontTitleArray.length; index++) {%>
+              <div class="my-5">
+                <div class="p-5 text-center bg-body-tertiary">
+                  <div class="container py-5">
+                    <h3 class="text-body-emphasis"><%= frontTitleArray[index] %></h3>
+                  <h4><%= frontUsernameArray[index] %></h4>
+                  <p class="lead">
+                    <%= frontContentArray[index] %>
+                  </p>
+                  <form action="/edit" method="POST">
+                    <button type="submit" class="btn btn-primary" style="border-radius: 100px;">Edit</button>
+                    <input type="hidden" value="<%= frontID[index] %>" name="index">
+                </form>
+                <form action="/delete" method="POST" style="margin-top: 10px;">
+                    <button type="submit" class="btn btn-danger" style="border-radius: 100px;">Delete</button>
+                    <input type="hidden" value="<%= frontID[index] %>" name="index">
+                </form>
+                  </div>
+                </div>
+              </div>
+        <% } %> 
+    <%}%>
+</div>
+
+<%- include("partials/footer.ejs") %>

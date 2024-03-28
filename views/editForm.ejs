@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container my-5">
+  <div class="p-5 text-center bg-body-tertiary rounded-3">
+    <h3 class="text-body-emphasis">Make your changes here!</h3>
+  </div>
+</div>
+
+<div class="AddDiv">
+  <form action="/submitEdit" method="POST">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="<%= editUsername %>" readonly>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" id="exampleInputPassword1" value="<%=editTitle%>">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Content</label>
+      <input type="text" name="content" class="form-control" id="exampleInputPassword1" value="<%= editContent %>" row="5">
+      <input type="hidden" name="index" value="<%= editID %>"> 
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+
+
+
+<%- include("partials/footer.ejs") %>
